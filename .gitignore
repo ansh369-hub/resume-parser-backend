@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Environment
+.env
+venv/
+ENV/
+
+# FastAPI uploads
+temp_uploads/
+
+# VS Code
+.vscode/
+
+# Misc
+*.log
+*.sqlite3
+*.db
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Ignore test outputs
+*.pytest_cache/
+
+# Ignore package files
+dist/
+build/
+*.egg-info/
+
+# Ignore Jupyter
+.ipynb_checkpoints/
+
+# Ignore requirements lock
+pipfile.lock
+poetry.lock
+
+# Ignore coverage
+htmlcov/
+.coverage
+coverage.xml
+
+# Ignore backups
+*.bak
+*.swp
+*.swo
