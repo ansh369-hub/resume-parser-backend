@@ -28,7 +28,7 @@ def normalize_resume_json(data: dict) -> dict:
         "linkedin": "",
         "github": "",
         "location": "",
-        "Work_Experiemce": "",
+        "work_experience": "",
         "job_roles": [],
         "summary": "",
         "skills": {},
