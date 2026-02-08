@@ -1,10 +1,22 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pathlib import Path
 import shutil, uuid
+import os
 
 from app.parser import parse_resume_pdf
 
 app = FastAPI(title="Resume Parser API")
+
+allowed_origin = os.getenv("FRONTEND_ORIGINS", "http://localhost:5173,http://localhost:8080")
+allowed_origins = [origin.strip() for origin in allowed_origin.split(",") if origin.strip()]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=allowed_origins,
+    allow_credentials=False,
+    allow_methods=["POST"],
+    allow_headers=["*"],
+)
 
 UPLOAD_DIR = Path("temp_uploads")
 UPLOAD_DIR.mkdir(exist_ok=True)
