@@ -23,6 +23,8 @@ def repair_json(json_str: str) -> str:
     return json_str
 
 def safe_json_loads(text: str) -> dict:
-    extracted = extract_json(text)
-    repaired = repair_json(extracted)
-    return json.loads(repaired)
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        cleaned = extract_json(text)
+        return json.loads(cleaned)
