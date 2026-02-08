@@ -171,7 +171,9 @@ def parse_resume_pdf(pdf_path: Path) -> dict:
             return parsed.model_dump()
 
         except Exception as e:
-            print(f"⚠️ Parse attempt {attempt} failed: {e}")
-
-    raise RuntimeError("❌ Failed to parse resume after retries")
-
+          print("=" * 60)
+          print(f"Parse attempt {attempt} failed")
+          print("Error:", repr(e))
+          print("Raw LLM output:")
+          print(response)
+          print("=" * 60)
